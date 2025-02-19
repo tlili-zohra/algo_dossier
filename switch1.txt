@@ -1,0 +1,17 @@
+algorithm check_numb
+	var num:Integer;
+	begin
+		read("num =",num);
+		switch(num) do
+			case (num>0): write("Positive");
+			case (num<0): write("negative");
+			case (num==0): write ("Zero");
+			default: write("this is not a number");
+		endswitch
+	end
+
+switch(num) do
+	case if (num>0)then: write("Positive");
+	case if else (num<0)then: write("negative");
+	case if else (num==0) then: write ("Zero");
+endswitch

@@ -1,0 +1,42 @@
+##############################################################   ESSAI 1 #####################################################################################
+algorithm check_characters;
+	var c:char;
+	begin
+		read("character =",c);
+		switch(c) do
+			case 'a','u','i','e','o','y': write("Voyelle") #vowel ['a','u','i','e','o']
+			case 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y','z': write("Consonant")
+			case '0','1','2','3','4','5','6','7','8','9': write ("digit")
+			case "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "/", "\", ":", ";", "\"", "`", "<", ">", ",", ".", "?": write("special character")
+			default: write ("Not existe")
+		endswitch
+	end
+##############################################################   ESSAI 2 #####################################################################################
+switch(c) do
+			case 'a','u','i','e','o','y': write("Voyelle") #vowel ['a','u','i','e','o']
+			case 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y','z': write("Consonant")
+			case ["0".."9"]: write ("digit")
+			case "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "=", "{", "}", "[", "]", "|", "/", "\", ":", ";", "\"", "`", "<", ">", ",", ".", "?": write("special character")
+			default: write ("Not existe")
+		endswitch
+
+##############################################################   ESSAI 3 #####################################################################################
+
+algorithm check_characters;
+	var char:character;
+	begin
+		write ("Enter a character");
+		read(char); 			###ou bien : Uppercase(char) elimner minus 
+		switch (char) do
+			case 'A' To 'Z', 'a' To 'z':
+				if (char in ['a','u','i','e','o','y']) then
+					write("it is a Vowel.");
+				else
+					write("it is a Consonant");
+				endif
+			case '0' To '9':
+				write("it is a digit");
+			default:
+				write("it is a special character.");
+		endSwicth
+end

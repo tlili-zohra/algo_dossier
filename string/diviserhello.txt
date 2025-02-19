@@ -1,0 +1,9 @@
+algorithm diviser_hello
+var ch:string;
+var i: integer;
+begin
+	readln("give me your word",ch)
+	for i from 1 to length(ch) do 
+		write(ch[i]);
+	end_for
+end

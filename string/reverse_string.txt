@@ -1,0 +1,36 @@
+algorithm reverse_string
+var ch:string;
+var i: integer;
+begin
+	readln("give me your word",ch)
+	for i from length(ch) downto 1 do 
+##########################################    ou bien
+	for i from length(ch) to 1 step -1 do 
+		write (ch[i]);
+	end_for
+end
+
+################# 2nd method #####################
+algorithm reverse_string
+var ch,ch_reverse:string;
+var i,y: integer;
+begin
+	readln("give me your word",ch);
+	y:=length(ch);
+	for i from 1 to length(ch) do 
+		ch_reverse[y]:=ch[i]
+		y:=y-1;
+	end_for
+end
+################# 3rd method #####################
+algorithm reverse_string
+var ch,ch_reverse:string;
+var i,y: integer;
+begin
+	readln("give me your word",ch);
+	y:=1;
+	for i from length(ch) to 1 step -1 do 
+		ch_reverse[y]:=ch[i]
+		y:=y+1;
+	end_for
+end

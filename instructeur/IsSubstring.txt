@@ -1,0 +1,31 @@
+Write an algorithms that get a 2 strings from the user and Check if one string is a substring of another.
+Example: Input: "hello" "ell", Output: true
+
+ALGORITHM IsSubstring
+VAR
+    i, j: INTEGER
+    found: BOOLEAN
+BEGIN
+    READ(INPUT)
+    READ(SUB)
+    found := FALSE
+
+    FOR i FROM 1 TO LENGTH(INPUT) DO
+        FOR j FROM 1 TO LENGTH(SUB) DO
+            IF INPUT[i+j-1] = SUB[j] THEN
+                IF j = LENGTH(SUB) THEN
+                    found := TRUE
+                    BREAK
+                END_IF
+            ELSE
+                BREAK
+            END_IF
+        END_FOR
+        IF found THEN
+            BREAK
+        END_IF
+    END_FOR
+
+    RETURN found
+END
+

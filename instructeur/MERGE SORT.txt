@@ -1,0 +1,146 @@
+MERGE SORT
+
+program BottomUpMergeSort;
+uses Math;
+
+const
+  MAX_SIZE = 100;
+
+type
+  TArray = array[1..MAX_SIZE] of Integer;
+
+procedure Merge(var arr: TArray; left, mid, right: Integer);
+var
+  temp: TArray;
+  i, j, k: Integer;
+begin
+  i := left;         // Start of left subarray
+  j := mid + 1;      // Start of right subarray
+  k := left;         // Start of temp array
+
+  // Merge left and right subarrays into temp
+  while (i <= mid) and (j <= right) do
+  begin
+    if arr[i] <= arr[j] then
+    begin
+      temp[k] := arr[i];
+      Inc(i);
+    end
+    else
+    begin
+      temp[k] := arr[j];
+      Inc(j);
+    end;
+    Inc(k);
+  end;
+
+  // Copy remaining elements of the left subarray
+  while i <= mid do
+  begin
+    temp[k] := arr[i];
+    Inc(i);
+    Inc(k);
+  end;
+
+  // Copy remaining elements of the right subarray
+  while j <= right do
+  begin
+    temp[k] := arr[j];
+    Inc(j);
+    Inc(k);
+  end;
+
+  // Copy sorted elements back into the original array
+  for i := left to right do
+    arr[i] := temp[i];
+end;
+
+procedure BottomUpMergeSort(var arr: TArray; n: Integer);
+var
+  subarraySize, left, mid, right: Integer;
+begin
+  subarraySize := 1;
+
+  // Iterate over subarray sizes: 1, 2, 4, 8, ...
+  while subarraySize < n do
+  begin
+    left := 1;
+    while left <= n - subarraySize do
+    begin
+      mid := left + subarraySize - 1;
+      right := Min(left + 2 * subarraySize - 1, n);
+
+      // Merge subarrays: arr[left..mid] and arr[mid+1..right]
+      Merge(arr, left, mid, right);
+
+      left := left + 2 * subarraySize;
+    end;
+
+    subarraySize := subarraySize * 2;
+  end;
+end;
+
+var
+  arr: TArray;
+  n, i: Integer;
+begin
+  // Input array size
+  Write('Enter the number of elements: ');
+  ReadLn(n);
+
+  // Input array elements
+  WriteLn('Enter the elements:');
+  for i := 1 to n do
+    Read(arr[i]);
+
+  // Perform bottom-up merge sort
+  BottomUpMergeSort(arr, n);
+
+  // Output sorted array
+  WriteLn('Sorted array:');
+  for i := 1 to n do
+    Write(arr[i], ' ');
+end.
+
+
+ 
+
+tab:=[21,15,3,8,12,1,19,4,21,22]; 
+
+length(tab)=10  subarraysize=1
+
+Pass 1:
+Merge [21] and [15] → [15, 21]
+Merge [3] and [8] → [3, 8]
+Merge [12] and [1] → [1, 12]
+Merge [19] and [4] → [4, 19]
+Merge [21] and [22] → [21, 22]
+
+
+tab:=[15,21,3,8,1,12,4,19,21,22];
+
+length(tab)=10  subarraysize=2
+
+Pass 2:
+Merge [15, 21] and [3, 8] → [3, 8, 15, 21]
+Merge [1, 12] and [4, 19] → [1, 4, 12, 19]
+Merge [21, 22] (no merging needed since it's already sorted).
+tab:=[3, 8, 15, 21,1, 4, 12, 19,21,22];
+
+length(tab)=10  subarraysize=4
+
+Pass 3: Subarray size = 4
+Merge [3, 8, 15, 21] and [1, 4, 12, 19] → [1, 3, 4, 8, 12, 15, 19, 21]
+Merge [21, 22] (no merging needed).
+
+tab:=[1, 3, 4, 8, 12, 15, 19, 21,21,22];
+
+
+length(tab)=10  subarraysize=8
+
+
+Pass 4: Subarray size = 8
+Merge [1, 3, 4, 8, 12, 15, 19, 21] and [21, 22] → [1, 3, 4, 8, 12, 15, 19, 21, 21, 22]
+
+tab := [1, 3, 4, 8, 12, 15, 19, 21, 21, 22]
+

@@ -1,0 +1,32 @@
+program search_array;
+var 
+i,n,num integer;
+Tarray [1..10]of integer;
+found Boolean;
+begin
+    n=10;
+    i=1;
+  repeat
+    begin
+        write ('Give me nomber to put in the table ');
+        readln(T[i]);
+        i=i+1;
+    end;
+  until(in)  ;
+  write ('Give me the number that you search  ');
+  readln(num);
+  
+  found= False;
+  for i = 1 to n do
+  begin
+    if (num=T[i]) then
+    begin
+        found=True;
+        Break;
+    end;
+end;
+if found then
+    WriteLn('Number found ')
+  else
+    WriteLn('Number not found in the array');
+end.

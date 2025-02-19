@@ -1,0 +1,10 @@
+algorithm divised_7
+	var num,i:integer;
+	begin
+		i:=0;
+		repeat 
+			read("Give me a number =",num);
+			i:=i+1;
+		until (num%7==0)
+		write("the number",num);	
+	end

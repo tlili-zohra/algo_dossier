@@ -1,0 +1,92 @@
+program MergeSort;
+
+uses SysUtils;
+
+procedure Merge(var arr: array of Integer; left, mid, right: Integer);
+var
+  n1, n2, i, j, k: Integer;
+  L, R: array of Integer;
+begin
+  n1 := mid - left + 1;
+  n2 := right - mid;
+
+  // Create temporary arrays
+  SetLength(L, n1);
+  SetLength(R, n2);
+
+  // Copy data to temporary arrays L[] and R[]
+  for i := 0 to n1 - 1 do
+    L[i] := arr[left + i];
+  for j := 0 to n2 - 1 do
+    R[j] := arr[mid + 1 + j];
+
+  i := 0;
+  j := 0;
+  k := left;
+
+  // Merge the temporary arrays back into arr[left..right]
+  while (i < n1) and (j < n2) do
+  begin
+    if L[i] <= R[j] then
+    begin
+      arr[k] := L[i];
+      Inc(i);
+    end
+    else
+    begin
+      arr[k] := R[j];
+      Inc(j);
+    end;
+    Inc(k);
+  end;
+
+  // Copy the remaining elements of L[], if any
+  while i < n1 do
+  begin
+    arr[k] := L[i];
+    Inc(i);
+    Inc(k);
+  end;
+
+  // Copy the remaining elements of R[], if any
+  while j < n2 do
+  begin
+    arr[k] := R[j];
+    Inc(j);
+    Inc(k);
+  end;
+end;
+
+procedure MergeSort(var arr: array of Integer; left, right: Integer);
+var
+  mid: Integer;
+begin
+  if left >= right then
+    Exit;
+
+  mid := left + (right - left) div 2;
+  MergeSort(arr, left, mid);
+  MergeSort(arr, mid + 1, right);
+  Merge(arr, left, mid, right);
+end;
+
+procedure PrintArray(arr: array of Integer);
+var
+  i: Integer;
+begin
+  for i := Low(arr) to High(arr) do
+    Write(arr[i], ' ');
+  WriteLn;
+end;
+
+var
+  arr: array of Integer = (12, 11, 13, 5, 6, 7);
+begin
+  WriteLn('Given array is:');
+  PrintArray(arr);
+
+  MergeSort(arr, 0, High(arr));
+
+  WriteLn('Sorted array is:');
+  PrintArray(arr);
+end.

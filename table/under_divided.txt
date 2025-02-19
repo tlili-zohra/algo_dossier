@@ -1,0 +1,32 @@
+############################# 1er methode #################
+algorithm under_divided
+	var num,i:integer;
+	begin
+		i:=0;
+		while(i<=100)
+			if(i%5==0)
+				write("Affiche number",i);
+				i:=i+1;
+			i:=i+1;
+		end_while
+	end
+
+######################### 2éme methode ########################
+algorithm hard
+ VAR
+ i: integer:=95;
+  begin
+    for i form i to -1 step -5 do 
+     write(i);
+    end_For
+  end
+######################### 3éme methode ########################
+algorithm easy
+ VAR
+ i: integer:=95;
+  begin
+   repeat
+    write(i);
+    i:=i-5;
+   until i<0
+  end

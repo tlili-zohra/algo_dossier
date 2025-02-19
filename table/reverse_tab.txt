@@ -1,0 +1,8 @@
+algorithm reverse_tab
+	var i:integer;
+	var tab:array[1..5] of integer= (10,20,30,40,50);
+	begin
+		for i from length(tab) to 1 do
+			write("Affiche number",tab[i]);
+		end_for
+	end

@@ -1,0 +1,6 @@
+algorithm bonjour
+	var name:string;
+	begin
+		read("name =",name);
+		write("Bonjour",name);
+	end

@@ -1,0 +1,62 @@
+write an algorithm that takes a number from user until that number is divided by 7.
+
+t:ARRAY[1..x] of integer
+
+Algorithm ArraySum
+    Var
+        n : Integer
+        arr : ARRAY[1..n] OF Integer  // Array of integers
+        sum : Integer
+Begin
+    Read("Enter the length of the array:", n)
+    FOR i FROM 1 TO n DO
+        Read("Enter element", i, ":", arr[i])
+    END FOR
+    
+    sum := 0
+    FOR i FROM 1 TO n DO
+        sum := sum + arr[i]
+    END FOR
+
+    Write("The sum of the array elements is:", sum)
+End
+
+
+Write an algorithm to reverse the elements of an array.
+Algorithm ArrayReverse
+    Var
+        n,y : Integer
+        arr : ARRAY[1..n] OF Integer
+        arr_reverse : ARRAY[1..n] OF Integer
+        sum : Integer
+
+Begin
+    Read("Enter the length of the array:", n)
+    CREATE an array 'arr' of size n
+
+    sum := 0
+    FOR i FROM 1 TO n DO
+        Read("Enter element", i, ":", arr1[i])
+    END FOR
+    y:=length(arr)
+    FOR i FROM 1 TO n DO
+        arr_reverse[i]:= arr[y]
+        y:= y - 1
+    END FOR
+    FOR i FROM 1 TO n DO
+        arr[i]:= arr_reverse[i]
+    END FOR
+
+End
+arr[2,5,9,8]
+arr_reverse[8,9,5,2]
+y=4 i=1
+arr[2,5,9,8]
+arr_reverse[8,,,]
+Y=3 i=2
+arr[2,5,9,8]
+arr_reverse[8,9,,]
+y=2 i=3
+arr[2,5,9,8]
+arr_reverse[8,9,5,]
+y=1 i=4

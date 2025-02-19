@@ -1,0 +1,28 @@
+write an algorithms that sort a table of 10 integers from the smallest to the largest.
+
+ALGORITHM SORT_TAB
+
+    VAR
+
+	tab:ARRAY[1..10] OF INTEGERS;
+	i,temp:INTEGER;
+	sorted:BOOLEAN:=FALSE;
+
+    BEGIN
+
+	tab:=[21,15,3,8,12,1,19,4,21,22];
+
+	while NOT sorted DO
+	    sorted:=TRUE
+	    FOR i FROM 1 TO LENGTH(tab)-1 DO
+		IF tab[i] > tab[i+1] THEN
+		   temp := tab[i]
+		   tab[i]:= tab[i+1]
+		   tab[i+1]:= temp
+		   sorted:=FALSE
+		END_IF
+	    END_for
+	END_while
+    END
+	    
+	

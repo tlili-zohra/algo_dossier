@@ -1,0 +1,10 @@
+algorithm age_check
+	var age:Integer;
+	begin
+		read("Age =",age);
+		switch(age)
+			case (age>0): write("Age is Positive");
+			case (age<0): write("Age isnegative");
+			case (age<60): write ("Age is old ");
+		endswitch
+	end

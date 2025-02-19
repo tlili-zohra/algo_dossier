@@ -1,0 +1,74 @@
+program QuickSort;
+
+type
+  TArray = array of Integer;
+
+procedure Swap(var a, b: Integer);
+var
+  temp: Integer;
+begin
+  temp := a;
+  a := b;
+  b := temp;
+end;
+
+function Partition(var tab: TArray; Start, Stop: Integer): Integer;
+var
+  Pivot, i, j: Integer;
+begin
+  Pivot := tab[Stop]; // Pivot is the last element
+  i := Start - 1;     // Index of the smaller element
+
+  for j := Start to Stop - 1 do
+  begin
+    // If the current element is smaller than or equal to the pivot
+    if tab[j] <= Pivot then
+    begin
+      Inc(i); // Increment the index of the smaller element
+      Swap(tab[i], tab[j]); // Swap tab[i] and tab[j]
+    end;
+  end;
+
+  // Swap the pivot element with the element at i+1
+  Swap(tab[i + 1], tab[Stop]);
+  Inc(i);
+  Partition := i;// Return the partitioning index
+end;
+
+procedure QuickSort(var tab: TArray; Start, Stop: Integer);
+var
+  PartitionIndex: Integer;
+begin
+  if Start < Stop then
+  begin
+    // Partition the array and get the partitioning index
+    PartitionIndex := Partition(tab, Start, Stop);
+
+    // Recursively sort the sub-arrays
+    QuickSort(tab, Start, PartitionIndex - 1); // Sort the left sub-array
+    QuickSort(tab, PartitionIndex + 1, Stop);  // Sort the right sub-array
+  end;
+end;
+
+procedure PrintArray(const tab: TArray);
+var
+  i: Integer;
+begin
+  for i := Low(tab) to High(tab) do
+    Write(tab[i], ' ');
+  Writeln;
+end;
+
+var
+  tab: TArray;
+begin
+  tab := TArray.Create(34, 7, 23, 32, 5, 62, 32, 35, 47, 43);
+  
+  Writeln('Original array:');
+  PrintArray(tab);
+  
+  QuickSort(tab, Low(tab), High(tab));
+  
+  Writeln('Sorted array:');
+  PrintArray(tab);
+end.

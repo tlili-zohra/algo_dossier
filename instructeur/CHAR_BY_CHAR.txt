@@ -1,0 +1,18 @@
+Write an algorithms that get a string from the user and write it character by Character reversed.
+Example: Input: "hello", Output: "o" "l" "l" "e" "h"
+
+
+ALGO CHAR_BY_CHAR
+    VAR
+	CH:STRING;
+	CH_REVERSED:STRING;
+	i:INTEGER;
+    BEGIN
+
+	READ("Write a text",CH)
+	FOR i FROM LENGTH(CH) TO 1 STEP -1 DO
+	    CH_REVERSED := CH_REVERSED + CH[i]
+	END_FOR
+
+    END
+	

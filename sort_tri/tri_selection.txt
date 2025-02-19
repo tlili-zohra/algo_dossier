@@ -1,0 +1,40 @@
+program Store_Table_selection;
+var
+    T:array[1..10]of integer;
+    i,n,j,temp,min:integer;
+    
+begin
+    n:=10;
+    i:=1;
+  repeat
+    begin
+        write ('Give me nomber to put in the table: ');
+        readln(T[i]);
+        i:=i+1;
+    end;
+  until(i>n)  ;
+  for i := 1 to n do
+    begin
+        writeln(T[i], ' ');
+    end;
+temp:=0;
+  for i := 1 to n do
+    begin
+        min:=i;
+        for j := i+1 to n do
+            begin
+                if (T[j]<T[min]) then
+                    begin
+                        min:=j;
+                    end;
+            end;
+            temp:=T[i];
+            T[i]:=T[min];
+            T[min]:=temp;
+    end;
+    
+  for i := 1 to n do
+    begin
+        write(T[i], ' ');
+    end;
+end.

@@ -1,0 +1,67 @@
+program check_word;
+var 
+  str1,str2:string;
+  i,j:integer;
+  b:string;
+begin
+    write ('Give me 1st text :');
+    readln(str1);
+    write ('Give me 2nd text :');
+    readln(str2);
+    j:=1;
+    i:=1;
+    b:='false';
+    while i<length(str1) do
+        begin
+            if str1[i]<>str2[j] then
+                begin
+                    i:=i+1;
+                end
+            else 
+            begin
+                j:=j+1;
+                i:=i+1;
+                b:='true';
+                end;
+        end;
+    writeln (b)
+end.
+
+############################## 2éme methode #####################
+program CheckSubstring;
+var
+  str1, str2: string;
+  isSubstring: boolean;
+begin
+  writeln('Enter the first string:');
+  readln(str1);
+
+  writeln('Enter the second string:');
+  readln(str2);
+
+  { Check if str2 is a substring of str1 }
+  isSubstring := Pos(str2, str1) <> 0;
+
+  if isSubstring then
+    writeln('"', str2, '" is a substring of "', str1, '".')
+  else
+    writeln('"', str2, '" is not a substring of "', str1, '".');
+end.
+############################## 3éme methode #####################
+program check_word_2eme_methode;
+var 
+  str1,str2:string;
+  x:integer;
+begin
+    write ('Give me 1st text :');
+    readln(str1);
+    write ('Give me 2nd text :');
+    readln(str2);
+    x:=pos(str2,str1);
+    if (x>=0) then
+    begin
+        write ('true');
+    end;
+    write ('false');
+  
+end.

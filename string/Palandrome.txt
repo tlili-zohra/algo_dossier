@@ -1,0 +1,36 @@
+algorithm Palandrome
+var ch:string;
+var i,j: integer;
+begin
+	readln("give me your word",ch) #madame =true
+	i:=1;
+	j:=length(ch)
+	while((i<=length(ch)) and (j=>1))do
+		if (ch[i]==ch[j]) then
+			i++;
+			j--;
+		write("False");
+		break;
+	end_while
+	write ("True");
+end
+
+####################### 2éme Methode ##################### 
+Algo Palandrome
+     var 
+	ch:string;
+	i,j:integer;
+	b: boolean:=True;
+    Begin
+	Read("Write a text",Ch);
+	j:=length(ch);
+	for i from 1 to length(ch) div 2 do #mad
+		if ch[i]<>ch[j] then
+		   b:=False
+		   Break;
+		end_if
+		j:=j-1;
+	end_for
+    Write(b);
+end.
+	

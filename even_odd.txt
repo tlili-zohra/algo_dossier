@@ -1,0 +1,11 @@
+algorithm somme
+	var num:Integer;
+	begin
+		read("num =",num);
+		if (num%2==0) then
+			write ("even")
+		else
+			witre("odd");
+	end
+
+% : modulo

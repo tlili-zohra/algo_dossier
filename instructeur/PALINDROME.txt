@@ -1,0 +1,22 @@
+Write an algorithms that get a string from the user and check if it is palindrome and write true or flse.
+Example: Input: "madam", Output: True
+
+ALGO PALINDROME
+    VAR
+	CH:STRING;
+	i,j:INTEGER;
+	B:BOOLEAN:=TRUE;
+    BEGIN
+
+	READ("Write a text",CH)
+	j:= length(ch)
+	FOR i FROM 1 TO LENGTH(CH) DIV 2 DO
+	   IF CH[i] <> CH[j] then
+		B:= FALSE
+		BREAK
+	   end_if
+	    j:= j - 1
+	END_FOR
+	WRITE(B)
+     END
+	

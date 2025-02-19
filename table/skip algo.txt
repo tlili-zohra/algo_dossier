@@ -1,0 +1,7 @@
+algorithm skip_num
+	var i:integer;
+	begin
+		for i from 1 to 50 STEP 5 do
+			write("Affiche number",i);
+		end_for
+	end

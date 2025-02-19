@@ -1,0 +1,10 @@
+algorithm somme
+	var num1,num2:Integer;
+	var sum:interger;
+	sum=0;
+	begin
+		read("num1 =",num1);
+		read("num2=",num2);
+		sum:=num1+num2;
+		write("somme=",sum);
+	end

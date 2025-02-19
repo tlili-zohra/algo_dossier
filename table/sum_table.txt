@@ -1,0 +1,35 @@
+algorithm sum_tab
+	var sum,long_tab,val,i:integer;
+	var tab:array of integer;
+	begin
+		read("give me the length of tableau",long_tab)
+		i:=1;
+		while (i<=long) do
+		read("give me the values of table",val);
+		tab[i]:=val;
+		i++
+		end_while
+
+		sum:=0
+		for i from 1 to length(tab) do
+			sum:= sum + tab[i]
+		end_for
+
+		write("sum of all elements",sum);
+	end
+
+############### 2éme methode #################
+algorithm sum_tab
+	var sum,long_tab,i:integer;
+	var tab:array[1..100] of integer;
+	begin
+		read("give me the length of tableau",long_tab)
+
+		sum:=0
+		for i from 1 to long_tab do 
+			read("give me one value for table",tab[i]);
+			sum:=sum+tab[i]
+		end_for
+
+		write("sum of all elements",sum);
+	end

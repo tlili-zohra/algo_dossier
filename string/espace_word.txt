@@ -1,0 +1,86 @@
+program compter_word_espace;
+  var
+  ch:string;
+  i,num: integer;
+  space:char;
+begin
+  write ('write text');
+  readln(ch);
+  num:=0;
+  for i := 1 to length(ch) do
+  begin
+    if (ch[i]=' ') and (ch[i+1]<>' ')  then
+    begin
+        num:=num+1;
+    end;
+end;
+  write(num);
+end.
+
+############## 2éme methode #################
+program compter;
+var
+  ch: string;
+  i, num, startIdx, endIdx: integer;
+begin
+  write('Écrivez un texte : ');
+  readln(ch);
+  
+
+ 
+    // Trouver la position du premier caractère non espace
+     startIdx := 1;
+    while (startIdx <= length(ch)) and (ch[startIdx] = ' ') do
+        startIdx := startIdx + 1;
+  
+    // Trouver la position du dernier caractère non espace
+    endIdx := length(ch);
+    while (endIdx >= 1) and (ch[endIdx] = ' ') do
+     endIdx := endIdx - 1;
+
+    // Vérifier si la chaîne est vide après la suppression des espaces
+    if startIdx > endIdx then
+        begin
+        write('Nombre de mots : 0');
+        exit;
+    end;
+    // Extraire la sous-chaîne sans espaces en début et fin
+    ch := copy(ch, startIdx, endIdx - startIdx + 1);
+     num := 0;
+  for i := 1 to length(ch) do
+  begin
+    // Compter les mots en détectant les transitions espace -> caractère
+    if (ch[i] = ' ') and (ch[i + 1] <> ' ') then
+      num := num + 1;
+  end;
+  
+  // Ajouter le premier mot
+  num := num + 1;
+
+  write('Nombre de mots : ', num);
+end.
+
+########### Autre methode ##################
+program WordCount;
+
+var
+    text: string;
+    Count, i: integer;
+begin
+    writeln('Enter a string: ');
+    readln(text);
+
+    Count := 0;
+
+    for i := 1 to length(text) do
+    begin
+        if (text[i] = ' ') and (i > 1) then
+            Count := Count + 1;
+    end;
+
+    if text <> '' then
+        Count := Count + 1; 
+
+    writeln('Number of words: ', Count);
+end.
+#####################autre methode ##########

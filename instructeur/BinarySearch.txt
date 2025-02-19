@@ -1,0 +1,57 @@
+program BinarySearch;
+
+uses
+  SysUtils;
+
+function BinarySearch(tab: array of Integer; start, stop, x: Integer): Integer;
+var
+  mid: Integer;
+begin
+  while start <= stop do
+  begin
+    mid := start + (stop - start) div 2;
+
+    // Check if x is present at mid
+    if tab[mid] = x then
+    begin
+      BinarySearch := mid + 1; // Adjust index to be 1-based
+      Exit;
+    end;
+
+    // If x is greater, ignore the left half
+    if tab[mid] < x then
+      start := mid + 1
+    // If x is smaller, ignore the right half
+    else
+      stop := mid - 1;
+  end;
+
+  // If we reach here, then the element was not present
+  BinarySearch := 0; // Return 0 if the element is not found
+end;
+
+var
+  tab: array of Integer;
+  x, n, i, result: Integer;
+begin
+  Write('Enter the size of the array: ');
+  ReadLn(n);
+
+  SetLength(tab, n); // Set array size
+  WriteLn('Enter the elements of the array in sorted order:');
+  for i := 0 to n - 1 do
+  begin
+    Write('Element ', i + 1, ': ');
+    ReadLn(tab[i]);
+  end;
+
+  Write('Enter the element to search for: ');
+  ReadLn(x);
+
+  result := BinarySearch(tab, 0, n - 1, x); // Array starts at index 0
+
+  if result = 0 then
+    WriteLn('Element is not present in the array')
+  else
+    WriteLn('Element is present at index ', result);
+end.

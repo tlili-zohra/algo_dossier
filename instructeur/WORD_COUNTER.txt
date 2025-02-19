@@ -1,0 +1,60 @@
+Write an algorithms that get a string from the user and Count the number of words in it.
+Example: Input: "hello world", Output: 2
+
+ALGO WORD_COUNTER
+    VAR
+	CH:STRING;
+	i,Count:INTEGER;
+    BEGIN
+
+	Write("Enter a string: ")
+        Read(text)
+
+        Count := 0
+        i := 1
+
+        REPEAT
+            IF (text[i] = ' ') AND (i > 1) THEN
+                Count := Count + 1
+            END_IF
+            i := i + 1
+        UNTIL i > Length(text)
+
+        IF text <> '' THEN
+            Count := Count + 1
+	END_IF
+
+        Write("Number of words: ", Count)
+    END
+
+EXEMPLE : " marwen "
+
+ALGO WORD_COUNTER
+    VAR
+	CH:STRING;
+	i,WORD:INTEGER;
+	INSIDE_WORD:BOOLEAN:=FALSE;
+
+    BEGIN
+
+	Write("Enter a string: ")
+        Read(CH)
+
+        WORD := 0
+        i := 1
+
+         REPEAT
+            IF (CH[i] <> ' ') THEN
+                IF NOT INSIDE_WORD THEN
+                    INSIDE_WORD := true
+                    WORD := WORD + 1
+                END IF
+            ELSE
+                INSIDE_WORD := false
+            END IF
+            
+            i := i + 1
+        UNTIL i > Length(CH)
+
+        Write("Number of words: ", WORD)
+    END

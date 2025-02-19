@@ -1,0 +1,10 @@
+algorithm Affiche_num
+	var num,i:integer;
+	begin
+		read("Give me a number =",num);
+		i:=0;
+		while(i<=num)
+			write("Affiche number",i);
+			i:=i+1;
+		end_while
+	end

@@ -1,0 +1,10 @@
+algorithm bonjour
+	var bday:string;
+	var age:integer;
+	
+	begin
+		read("hello");
+		read("birthdate",bday);
+		age=2025-bday;
+		write("age",age);
+	end
