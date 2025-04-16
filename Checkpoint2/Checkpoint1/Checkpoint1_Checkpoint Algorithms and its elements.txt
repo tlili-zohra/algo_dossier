@@ -1,0 +1,40 @@
+program Checkpoint1_Checkpoint Algorithms and its elements;
+
+var
+  c: char;
+  length, words, voyelle: integer;
+  inWord: boolean;
+
+begin
+  length := 0;
+  words := 0;
+  voyelle := 0;
+  inWord := false;
+
+  writeln('Entrez une phrase qui se termine par un point:');
+
+  repeat
+    read(c);
+    length := length + 1;
+
+    // Vérifier si le caractère est une voyelle 
+    if c in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'] then
+      voyelle := voyelle + 1;
+
+    // Vérifier le début d'un mot
+    if (c = ' ') then
+      inWord := false
+    else if not inWord then
+    begin
+      words := words + 1;
+      inWord := true;
+    end;
+
+  until c = '.';
+
+  writeln('Nombre de caractères : ', length);
+  writeln('Nombre de mots : ', words);
+  writeln('Nombre de voyelles : ', voyelle);
+  
+  readln;
+end.

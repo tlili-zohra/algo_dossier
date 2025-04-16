@@ -1,0 +1,23 @@
+function insertionSort(tab) {
+    let n = tab.length;
+    
+    for (let i = 1; i < n; i++) {
+        let max = tab[i];
+        let j = i - 1;
+
+        // déplacer les éléments plus grands que max
+        while (j >= 0 && tab[j] > max) {
+            tab[j + 1] = tab[j];
+            j--;
+        }
+
+        // insérer l'élément à la bonne position
+        tab[j + 1] = max;
+    }
+}
+
+// Saisie des éléments du tableau
+let tab = [8,2,8,7,1,0,3,4];
+console.log("Tableau Avant le Tri d'insertion :", tab);
+insertionSort(tab);
+console.log("Tableau après le Tri d'insertion :", tab);
